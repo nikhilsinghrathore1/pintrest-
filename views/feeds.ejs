@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+               <meta charset="UTF-8">
+               <meta http-equiv="X-UA-Compatible" content="IE=edge">
+               <meta name="viewport" content="width=device-width, initial-scale=1.0">
+               <title>feeds</title>
+               <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"rel="stylesheet"/>
+               <link rel="stylesheet" href="/stylesheets/feeds.css">
+</head>
+<body>
+               <div id="main">
+                              <div id="profileBottom">
+                                             <% posts.forEach((post)=>{ %>
+                                                            <div class="feed">
+                                                                           <div class="image">
+                                                                                          <img src="/images/uploads/<%= post.image %>" alt="not showing">  
+                                                                                           <div class="hidden">
+                                                                                                         <form action="/savePost" method="post" hidden class="savePost">
+                                                                                                                        <input type="text" name="postID" value="<%= post._id %>">
+                                                                                                         </form>
+                                                                                          <button class="save">save</button>
+                                                                                          <div class="share">
+                                                                                                         <div class="link"><a href="https://images.unsplash.com/photo-1682686578023-dc680e7a3aeb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8fA%3D%3D" target="_blank">link</a></div>
+                                                                                                         <button class="icon"><i class="ri-upload-2-line"></i></button>
+                                                                                                         <button class="icon"><i class="ri-more-fill"></i></button>
+                                                                                          </div>
+                                                                           </div>
+                                                            </div>
+                                                            <h1><%= post.imageText %></h1>
+                                             </div>
+                                             <%  }) %>
+                                            
+                                             <!-- <div class="feed"><a href="https://images.unsplash.com/photo-1701624314371-acc9aad51268?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D" target="_blank"><img src="https://images.unsplash.com/photo-1701624314371-acc9aad51268?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D" alt="not showing"></a>
+                                             <h1>feed 2</h1></div>
+                                             <div class="feed"><a href="https://images.unsplash.com/photo-1702501725302-aff7c7c8c965?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNHx8fGVufDB8fHx8fA%3D%3D" target="_blank"><img src="https://images.unsplash.com/photo-1702501725302-aff7c7c8c965?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNHx8fGVufDB8fHx8fA%3D%3D" alt="not showing"></a>
+                                             <h1>feed 3</h1></div> -->
+                                            
+                              </div>
+               </div>
+</body>
+<script>
+              let saved = document.querySelectorAll(".savePost");
+               let save = document.querySelectorAll(".save");
+               save.forEach((e , i )=>{
+                              e.addEventListener("click",()=>{
+                                             saved[i].submit();
+                              })
+               })
+               
+</script>
+</html>

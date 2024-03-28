@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+               <meta charset="UTF-8">
+               <meta http-equiv="X-UA-Compatible" content="IE=edge">
+               <meta name="viewport" content="width, initial-scale=1.0">
+               <title>profile</title>
+               <link rel="stylesheet" href="/stylesheets/profile.css">
+               <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+              <div id="main">
+               <div id="profileTop">
+                              <div class="circle">
+                                <% if(user.profileImg != null){ %>
+                                    <img src="/images/uploads/<%= user.profileImg %>" alt="">
+                                <% } %>
+                                <% if(user.profileImg == null){ %>
+                                  <h1 class="tt"><%= user.username[0] %></h1>
+                                  <% } %>
+                                <form hidden action="/profileImage" method="post" enctype="multipart/form-data" hidden id="imageProfile">
+                                  <input type="file" name="profileImage">
+                                </form>
+                                <div id="uploadProfileImage">
+                                  <i class="ri-pencil-fill"></i>
+                                </div>
+                              </div>
+                              <h1><%= user.username %></h1>
+                            <div id="logo"><img src="/images/small_PInterest_logo-removebg-preview.png" alt="not showing">
+                              <h2><%= user.email %></h2>
+                              </div>
+                              <h2>0 following</h2>
+                              <div id="buttons">
+                                             <button class="firstBtn">share</button>
+                                             <button>Edit Profile</button>
+                              </div>
+                              <div id="sharedSaved">
+                                             <button class="firstBtn"><a href="/profile">Created</a></button>
+                                             <button><a href="/saved">Saved</a></button>
+                              </div>
+                              <form action="/upload" method="post" enctype="multipart/form-data">
+                                <input type="file" name="file">
+                                <input type="text" name="caption" placeholder="decsription">
+                                <input type="submit" name="submit" value="upload">
+                              </form>
+               </div>
+               <div id="profileBottom">
+                <% if(saved == false){ %>
+                  <% user.posts.forEach(function(post){ %>
+                    <div class="feed"><img src="/images/uploads/<%= post.image %>" alt="not showing">
+                    <h1><%= post.imageText %></h1>
+                  </div>
+                 <% }) %>
+                             
+              <% } %>
+                <% if(saved == true){ %>
+                  <% user.savedpost.forEach(function(post){ %>
+                    <div class="feed"><img src="/images/uploads/<%= post.image %>" alt="not showing">
+                    <h1><%= post.imageText %></h1>
+                  </div>
+                 <% }) %>
+                             
+              <% } %>
+                             
+               </div>
+              </div>
+</body>
+<script>
+  document.querySelector("#uploadProfileImage").addEventListener("click",()=>{
+    document.querySelector("#imageProfile input").click();
+  })
+  document.querySelector("#imageProfile input").addEventListener("change",()=>{
+    document.querySelector("#imageProfile").submit();
+  })
+  
+</script>
+</html>
+
+   <!-- <div class="feed"><a href="https://images.unsplash.com/photo-1701624314371-acc9aad51268?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D" target="_blank"><img src="https://images.unsplash.com/photo-1701624314371-acc9aad51268?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D" alt="not showing"></a>
+                              <h1>feed 2</h1></div>
+                              <div class="feed"><a href="https://images.unsplash.com/photo-1702501725302-aff7c7c8c965?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNHx8fGVufDB8fHx8fA%3D%3D" target="_blank"><img src="https://images.unsplash.com/photo-1702501725302-aff7c7c8c965?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNHx8fGVufDB8fHx8fA%3D%3D" alt="not showing"></a>
+                              <h1>feed 3</h1></div>

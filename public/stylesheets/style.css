@@ -1,0 +1,60 @@
+/* okay so just now i have to create a feed page and a profile page first i'll create a profile page that will contain a example feed and then i will create a feed page okay so the profile page is very simple i just have to create a  */
+
+
+@font-face {
+  font-family: gilroyL;
+  src: url(/fonts/Gilroy-Light.ttf);
+}
+@font-face {
+  font-family: gilroyM;
+  src: url(/fonts/Gilroy-Medium.ttf);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: gilroyL;
+  box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+}
+#main{
+  height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1576273572605-c7a27d9ad666?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNvbGxhZ2UlMjBhcnR8ZW58MHx8MHx8fDA%3D);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  display: flex;align-items: center;justify-content: center;
+  background-color: #dadada;
+}
+#form{
+  height: 60%;
+  border-radius: 20px;
+  text-align: center;
+  width: 30%;
+  background-color: #ffffff;
+}
+#form>h2{
+  margin-bottom: 10px;
+}
+#form>img{
+  margin-top: 10px;
+  width: 150px;
+}
+form>input{
+  width: 80%;
+  margin: auto;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  padding: 4px  3px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  display: block;
+}
+.red{
+  color: red;
+  font-weight: 900;
+  /* margin-bottom: 70px; */
+  text-transform: capitalize;
+}
